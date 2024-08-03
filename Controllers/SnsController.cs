@@ -58,7 +58,7 @@ namespace RestAPI.Controllers
         {
             var bucketName = message.BucketName;
             var key = message.S3Key;
-            var localFilePath = Path.Combine("C:/Uploads", Path.GetFileName(key));
+            var localFilePath = Path.Combine("C:/Uploads/", Path.GetFileName(key));
 
             var fileTransferUtility = new TransferUtility(_s3Client);
             await fileTransferUtility.DownloadAsync(localFilePath, bucketName, key);
